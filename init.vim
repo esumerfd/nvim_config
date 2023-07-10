@@ -188,7 +188,7 @@ autocmd FileType cs setlocal shiftwidth=4 tabstop=4
 "Plug 'rosenfeld/rgrep.vim'           " https://github.com/rosenfeld/rgrep.vim
 "Plug 'vim-scripts/YankRing.vim'
 "Plug 'kien/ctrlp.vim'
-"Plug 'mg979/vim-visual-multi'
+Plug 'mg979/vim-visual-multi'
 "Plug 'mattn/emmet-vim'
 "Plug 'jaredgorski/spacecamp'
 "Plug 'xolox/vim-misc'
