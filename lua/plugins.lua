@@ -21,6 +21,8 @@ Plug 'nvim-lua/completion-nvim'
 --Plug 'SirVer/ultisnips'
 --Plug 'honza/vim-snippets'
 
+Plug 'mg979/vim-visual-multi'
+
 -- Fuzzy finder
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -46,7 +48,7 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
 
 -- Github integration
-Plug 'pwntester/octo.nvim'
+--Plug 'pwntester/octo.nvim'
 
 Plug 'mbbill/undotree'
 
@@ -55,6 +57,27 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'jaredgorski/spacecamp'
 
 Plug 'folke/which-key.nvim'
+
+Plug 'AndrewRadev/sideways.vim'
+
+Plug 'arthurxavierx/vim-caser'
+
+Plug 'matze/vim-move'
+
+-- https://github.com/stevearc/oil.nvim
+Plug 'stevearc/oil.nvim'
+
+-- https://github.com/godlygeek/tabular
+Plug 'godlygeek/tabular'
+
+-- https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
+
+-- https://github.com/kylechui/nvim-surround
+Plug 'kylechui/nvim-surround'
+
+-- https://github.com/m4xshen/autoclose.nvim
+Plug 'm4xshen/autoclose.nvim'
 
 vim.call('plug#end')
 

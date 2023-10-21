@@ -12,8 +12,10 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
-vim.keymap.set('n', '<leader>>', '20<C-W>>')
-vim.keymap.set('n', '<leader><', '20<C-W><')
+vim.keymap.set('n', '<leader>wk', '20<C-W>+')
+vim.keymap.set('n', '<leader>wj', '20<C-W>-')
+vim.keymap.set('n', '<leader>wh', '20<C-W>>')
+vim.keymap.set('n', '<leader>wl', '20<C-W><')
 
 -- Files by name
 --vim.keymap.set('n', '<leader>oo', ':exec("tag ".expand("<cword>"))<CR>')

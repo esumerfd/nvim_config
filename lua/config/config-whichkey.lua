@@ -80,19 +80,34 @@ local opts = {
 
 local mappings = {
 
-    o = {
-      o = {':exec("tag ".expand("<cword>"))<CR>', "Open tag here"},
-      t = {':topleft :vsplit<CR>:exec("tag ".expand("<cword>")."Test")<CR>', 'Open test'},
-    },
+    d = { 'yw:vsplit ../stackdb/db/baseline_*/create_schema.sql<CR>/<c-r>"<CR>', 'Open STACKDB Baseline' },
     e = {':NvimTreeToggle<CR>', 'Toggle Tree'},
     f = {
-      f = {':Telescope find_files<CR>', 'Find files'},
-      g = {':Telescope live_grep<CR>', 'Live grep'},
-      b = {':Telescope buffers<CR>', 'Buffers'},
-      h = {':Telescope help_tags<CR>', 'Help tags'},
-      l = {':Telescope git_files<CR>', 'Git files'},
-      e = {':NvimTreeFindFile<CR>', 'Find file in tree'},
-    }
+      name = 'Find things',
+      f = { ':Telescope find_files<CR>', 'Find files' },
+      g = { ':Telescope live_grep<CR>', 'Live grep' },
+      b = { ':Telescope buffers<CR>', 'Buffers' },
+      h = { ':Telescope help_tags<CR>', 'Help tags' },
+      l = { ':Telescope git_files<CR>', 'Git files' },
+      e = { ':NvimTreeFindFile<CR>', 'Find file in tree' },
+    },
+    o = {
+      name = 'Open things',
+      o = { ':exec("tag ".expand("<cword>"))<CR>', "Open tag here" },
+      t = { ':topleft :vsplit<CR>:exec("tag ".expand("<cword>")."Test")<CR>', 'Open test' },
+      L = { ':tab split<CR>:exec("tag ".expand("<cword>"))<CR>', 'Open in new tab' },
+      k = { ':split<CR>:exec("tag ".expand("<cword>"))<CR>', 'Open above split' },
+      h = { ':vsplit<CR>:exec("tag ".expand("<cword>"))<CR>', 'Open left vsplit' },
+      l = { ':vsplit<CR><C-w>l:exec("tag ".expand("<cword>"))<CR>', 'Open right vsplit' },
+      n = { ':split<CR><C-W>j:NvimTreeFindFile<CR>j', 'Open next' },
+    },
+    a = {
+      name = 'Move argument or lines',
+      h = { ':SidewaysLeft<CR>', 'Argument left'},
+      l = { ':SidewaysRight<CR>', 'Argument right'},
+      j = { ':m .+1<CR>', 'Lines down'},
+      k = { ':m .-2<CR>', 'Lines up'},
+    },
 }
 
 which_key.setup(setup)

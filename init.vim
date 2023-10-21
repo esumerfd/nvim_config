@@ -48,6 +48,10 @@
 
 :lua << EOF
 
+  -- disable netrw at the very start of your init.lua
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+
   local load_config = function()
     for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath('config')..'/lua/config', [[v:val =~ '\.lua$']])) do
       require('config/'..file:gsub('%.lua$', ''))
@@ -57,7 +61,7 @@
   require("plugins")
   load_config()
 
-  vim.cmd [[colorscheme spacecamp]]
+  vim.cmd [[colorscheme spacecamp]] -- industrial
 EOF
 
 let leader=' '
@@ -106,19 +110,19 @@ set wildignore=*.o,*.obj,*~
 set wildignore+=*/gen/*,*/tmp/*,*.so,*.swp,*.zip,*/_build/*,.git/*,*.dll,*.exe,*.dat
 
 au BufRead,BufNewFile *.repo set filetype=dosini
-"au BufRead,BufNewFile *.test set filetype=groovy
-"au BufRead,BufNewFile *.fn set filetype=groovy
+au BufRead,BufNewFile *.test set filetype=groovy
+au BufRead,BufNewFile *.fn set filetype=groovy
 au BufRead,BufNewFile *.cshtml set filetype=html
 
 " Clear selected search
 nnoremap <CR> :noh<CR><CR>
 nnoremap <F1> :noh<CR><CR>
 
-map <C-s> :wa<CR>
-imap <C-s> <ESC><ESC>:wa<CR>
+map <C-s> :wa<CR>:w<CR>
+imap <C-s> <ESC><ESC>:wa<CR>:w<CR>
 
 " Open Project Files
-nnoremap <silent> <leader>d yw:vsplit ../stackdb/db/baseline_10.0.500/create_schema.sql<CR>/<c-r>"<CR>
+"nnoremap <silent> <leader>d yw:vsplit ../stackdb/db/baseline_10.0.500/create_schema.sql<CR>/<c-r>"<CR>
 
 " Syntax
 syntax on
@@ -137,16 +141,15 @@ command! CopyPath let @+ = expand('%:p')
 command! CopyRel let @+ = expand('%')
 command! CopyFile let @+ = expand('%:t')
 command! CopyDir let @+ = expand('%:p:h')
-command! Ev :tabe ~/.config/nvim/init.vim
+command! Ev :e ~/.config/nvim/init.vim
+command! El :e ~/.config/nvim/lua
+command! Vifm :!vifm expand('%:p')
+command! -nargs=0 Code !vs_code '%:p'
 
 " Sessions
 let g:session_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <Leader>so :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
-
-" Launch Vs Code for file in buffer.
-command! -nargs=0 Code !vs_code '%:p'
-nnoremap <silent> ,v :Code<CR>
 
 " Work out what the syntax under the cursor is
 command! LineSyntax echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")
@@ -188,7 +191,7 @@ autocmd FileType cs setlocal shiftwidth=4 tabstop=4
 "Plug 'rosenfeld/rgrep.vim'           " https://github.com/rosenfeld/rgrep.vim
 "Plug 'vim-scripts/YankRing.vim'
 "Plug 'kien/ctrlp.vim'
-Plug 'mg979/vim-visual-multi'
+"Plug 'mg979/vim-visual-multi'
 "Plug 'mattn/emmet-vim'
 "Plug 'jaredgorski/spacecamp'
 "Plug 'xolox/vim-misc'
